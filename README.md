@@ -5,18 +5,20 @@ List of websites with their best 2FA options
 ## Ranks
 Weaker 2FA options override the stronger options, for example, if a website supports hardware token but does not allow SMS OTP to be disabled, it will be ranked lower.
 
-1 - Hardware key only, without any other weaker 2FA options  
-2a - Hardware key or backup codes  
-2b - Hardware key or e-mail code  
-2c - Hardware key or e-mail code or backup codes  
-3  - Software TOTP 2FA and e-mail code  
-3a - Software TOTP 2FA only  
-3b - Software TOTP 2FA or backup codes  
-3c - Software TOTP 2FA or e-mail code  
-3d - Software TOTP 2FA or e-mail code or backup codes  
-4a~4d - 3a~3d but 2FA is skipped 2FA when using certain SSO  
-5a - Software TOTP or SMS OTP  
-5b - SMS OTP only  
+| Rank | Sub-rank | Best 2FA Options                                        |
+|:----:|:--------:|---------------------------------------------------------|
+|  1   |          | Hardware key only, without any other weaker 2FA options |
+|  2   |    a     | Hardware key or backup codes                            |
+|      |    b     | Hardware key or e-mail code                             |
+|      |    c     | Hardware key or e-mail code or backup codes             |
+|  3   |          | Software TOTP 2FA and e-mail code                       |
+|      |    a     | Software TOTP 2FA only                                  |
+|      |    b     | Software TOTP 2FA or backup codes                       |
+|      |    c     | Software TOTP 2FA or e-mail code                        |
+|      |    d     | Software TOTP 2FA or e-mail code or backup codes        |
+|  4   |   a~d    | 3a~3d but 2FA is skipped 2FA when using certain SSO     |
+|  5   |    a     | Software TOTP or SMS OTP                                |
+|      |    b     | SMS OTP only                                            |
 
 | Website    | Rank  | HW Key | SW TOTP | E-mail | SMS | Backup Code | Notes                                                                              |
 |------------|-------|--------|---------|--------|-----|-------------|------------------------------------------------------------------------------------|
