@@ -1,6 +1,7 @@
 # Websites-BestMFA
 List of websites with their best MFA options.  
-Only for free accounts, does not include Paid/Commercial/Premium service accounts.
+Only for free accounts, does not include Paid/Commercial/Premium service accounts.  
+Does not consider the different implementations/processes of account recovery process.
 
 ## Introduction
 One fine day in 2022, bought my security token and its spare, logged in to my favorite website to start securing it. Account Settings, Security and Privacy> WAIT, where is the setting that says, add security token?
