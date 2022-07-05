@@ -28,14 +28,13 @@ The realization that some websites allow MFA only with SMS-2FA enabled, or give 
 
 ### Ranks Explaination
 1. General security strengths of different 2FA options, in descending order:
-
-   - Security Tokens
-   - Hardware-backed TOTP
-   - TOTP
-   - Backup Codes
-   - Mobile Push
-   - E-mail
-   - SMS
+    - Security Tokens
+    - Hardware-backed TOTP
+    - TOTP
+    - Backup Codes
+    - Mobile Push
+    - E-mail
+    - SMS
 
 2. Backup codes as secondary 2FA is ranked higher than e-mail as Backup Codes can be deliberately ignored (not saved anywhere when asked during the process of setting up TOTP) to eliminate theft possibility. Since there is a small possibility that user will save this backup code somewhere as instructed when enabling TOTP potentially compromising security, websites that do not support backup code login are ranked higher.
 
