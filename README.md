@@ -10,24 +10,25 @@ WAIT! I NEED TO ENROLL IN THIS GOOGLE ADVANCED THREAD PROTECTION to use hardware
 
 Above are the problems you may when trying to use security tokens as your main 2FA method. Since a lot of the websites yet to support security tokens as 2FA I needed to keep a list to remind myself to check them in the future. As I visited more websites, the range of 2FA/MFA options and combinations of them are totally.. unexpectedly unstandardized, and the combinations of different MFA options are as complicated as they can be to consider which would give the best security.
 
-The realization that some websites allow MFA only with SMS-2FA enabled, or give no options to disable less secure 2FA options, and the need to have a standard rule to follow when setting up 2FA/MFA give birth to this document.
+The realization that some websites allow MFA only with SMS-2FA enabled, or give no options to disable less secure 2FA options, and the need to have a standard rule to follow when setting up 2FA/MFA gave birth to this document.
 
 ## Ranks
-| Rank | Sub-rank | Best 2FA Options                                           |
-|:----:|:--------:|------------------------------------------------------------|
-|  1   |          | Security Tokens only, without any other weaker 2FA options |
-|  2   |    a     | Security Tokens, TOTP, Backup Codes                        |
-|      |    b     | Security Tokens, E-mail, Backup Codes, Mobile Push         |
-|  3   |    a     | TOTP and E-mail                                            |
-|      |    b     | TOTP only                                                  |
-|      |    c     | TOTP, Backup Codes                                         |
-|      |    d     | TOTP, E-mail, Backup Codes, Mobile Push                    |
-|  4   |   a~e    | 3a~3e but 2FA is skipped when using certain SSO            |
-|  5   |    a     | TOTP, SMS-OTP                                              |
-|      |    b     | SMS-OTP only                                               |
+| Rank | Sub-rank | Best 2FA Options                                           | Rank after Removing TOTP & Backup Codes |
+|:----:|:--------:|------------------------------------------------------------|:---------------------------------------:|
+|  1   |          | Security Tokens only, without any other weaker 2FA options |                No Change                |
+|  2   |    a     | Security Tokens, TOTP, Backup Codes                        |                    1                    |
+|      |    b     | Security Tokens, E-mail, Backup Codes, Mobile Push         |                   2b                    |
+|  3   |    a     | TOTP and E-mail                                            |                No Change                |
+|      |    b     | TOTP only                                                  |                No Change                |
+|      |    c     | TOTP, Backup Codes                                         |                   3b                    |
+|      |    d     | TOTP, E-mail, Backup Codes, Mobile Push                    |                No Change                |
+|  4   |   a~e    | 3a~3e but 2FA is skipped when using certain SSO            |                No Change                |
+|  5   |    a     | TOTP, SMS-OTP                                              |                No Change                |
+|      |    b     | SMS-OTP only                                               |                No Change                |
 
 ### Ranks Explaination
 1. General security strengths of different 2FA options, in descending order:
+
    - Security Tokens
    - Hardware-backed TOTP
    - TOTP
@@ -56,44 +57,44 @@ The realization that some websites allow MFA only with SMS-2FA enabled, or give 
 4. E-mail, recovery e-mail must be of similar sign-in security level (e.g. an Gmail address enrolled in ATP).
 5. Backup codes shall be removed, or stored offline (not on any form of digital device), think of it as a type of single-use security token but without the protection from phishing/MitB.
 
-## Abbreviations
+## Website List
+### Table Header Abbreviations
 Token - Security Token  
 TOTP - Time-based one-time password  
 E-Mail - E-mail Code  
 SMS - Short Message Service OTP  
 B.C. - Backup Codes
 
-## Website List
 | Website     | Rank | Token | TOTP | E-mail | SMS | B.C.     | Notes                                                            |
-|-------------|------|-------|------|--------|-----|----------|------------------------------------------------------------------|
+|-------------|:----:|:-----:|:----:|:------:|:---:|:--------:|------------------------------------------------------------------|
 | Amazon      | 5a   |       | O    |        | O   | No       | SMS-2FA required to enable TOTP                                  |
 | Atlassian   | 4c   |       | O    |        |     | Yes      | 2FA is skipped when using Google, Microsoft, or SAML SSO         |
 | Binance.us  | 3b+  |       | O    | +      |     | No       | E-mail-2FA is required on top of TOTP for new device login       |
 | Bitwarden   | 3c   |       | O    |        |     | Yes      | Non-premium does not support security tokens                     |
-| Coinbase    | 1    | O     |      |        |     | No       |                                                                  |
+| Coinbase    | 1    | >1    |      |        |     | No       |                                                                  |
 | Discord     | 3c   |       | O    |        |     | Yes      |                                                                  |
 | Docker      | 3c   |       | O    |        |     | Yes      |                                                                  |
 | Evernote    | 3c   |       | O    |        |     | Yes      | Does not ask for 2FA using Goggle SSO                            |
 | Facebook    | 1(?) |       | O    |        |     | Yes      | Message prompt by Facebook indicates possibility to approve login from another logged in device when "Use a different method" is selected.[^fb] To be verified. |
-| GitHub      | 2b   | O     | O    |        |     | Yes      | Force enables GitHub Mobile Push-2FA if mobile app is used       |
+| GitHub      | 2b   | >1    | O    |        |     | Yes      | Force enables GitHub Mobile Push-2FA if mobile app is used       |
 | GoodSync    | 3b   |       | O    |        |     | No       |                                                                  |
-| Google-ATP  | 1    | O     |      |        |     | No       | Need to enroll in Advanced Thread Protection                     |
+| Google-ATP  | 1    | >1    |      |        |     | No       | Need to enroll in Advanced Thread Protection                     |
 | Google      | 3d   |       | O    |        |     | Optional | Alternative 2FA using Security code from phone, mobile push 2FA  |
 | Instagram   | 3c   |       | O    |        |     | Yes      |                                                                  |
 | LinkedIn    | 3c   |       | O    |        |     | Yes      |                                                                  |
 | LogMeIn     | 3d   |       | O    | O      |     | Yes      |                                                                  |
-| Mega        | 2b   | O     | O    | O      |     | Yes      |                                                                  |
-| Microsoft   | 2b   | O     | O    | O      |     | Yes      | Bypasses username/password prompt when using security token      |
+| Mega        | 2b   | >1    | O    | O      |     | Yes      |                                                                  |
+| Microsoft   | 2b   | >1    | O    | O      |     | Yes      | Bypasses username/password prompt when using security token      |
 | Parsec      | 3c   |       | O    |        |     | Yes      |                                                                  |
-| PayPal      | 1    | O     |      |        |     | No       | Only supports single security token. Only allows "Primary" 2FA method when set. Removal of recovery phone number is not possible. |
+| PayPal      | 1    | 1     |      |        |     | No       | Only supports single security token. Only allows "Primary" 2FA method when set. Removal of recovery phone number is not possible. |
 | Reddit      | 3c   |       | O    |        |     | Yes      |                                                                  |
 | Synology    | 5a   |       | O    |        | O   | Yes      | SMS-2FA required to enable TOTP                                  |
 | TradingView | 3c   |       | O    |        |     | Yes      |                                                                  |
-| Twitch      | 5a   |       | O    |        |     | No       | SMS-2FA required to enable TOTP. Force integrates Authy. [^twc1] |
-| Twitter     | 1    | O     |      |        |     | Yes      |                                                                  |
-| Ubisoft     | 5a   |       |      | O      | O   | Yes      | SMS 2FA required to enable E-mail TOTP                           |
+| Twitch      | 5a   |       | O    |        | O   | No       | SMS-2FA required to enable TOTP. Force integrates Authy. [^twc1] |
+| Twitter     | 1    | >1    |      |        |     | Yes      |                                                                  |
+| Ubisoft     | 5a   |       |      | O      | O   | Yes      | SMS-2FA required to enable E-mail-2FA                            |
 | XDA Forums  | 3c   |       | O    |        |     | Yes      |                                                                  |
-| Yahoo       | 3c   | O     |      | O      |     | No       | Requires 2 recovery emails to activate 2FA, but the second e-mail can (shall) be removed after setup. |
+| Yahoo       | 3c   | >1    |      | O      |     | No       | Requires 2 recovery emails to activate 2FA, but the second e-mail can (shall) be removed after setup. |
 | Zoom        | 3c   |       | O    |        |     | Yes      |                                                                  |
 
 [^fb]: "You’ve asked us to require a 6-digit login code when anyone tries to access your account from a new device or browser.
