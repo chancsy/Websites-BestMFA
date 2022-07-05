@@ -1,5 +1,5 @@
 # Websites-BestMFA
-List of websites with their best 2FA options.
+List of websites with their best MFA options.
 
 ## Introduction
 One fine day in 2022, bought my security token and its spare, logged in to my favorite website to start securing it. Account Settings, Security and Privacy> WAIT, where is the setting that says, add security token?
@@ -8,7 +8,9 @@ Logged in to second website, added security tokens. WAIT, where is the option to
 
 WAIT! I NEED TO ENROLL IN THIS GOOGLE ADVANCED THREAD PROTECTION to use hardware keys as the only 2FA method? AND I CAN ONLY USE THUNDERBIRD AS E-MAIL CLIENT FROM HERE ONWARDS, AND SYNOLOGY CLOUD WILL STOP WORKING???
 
-Above are the problems you may when trying to use security tokens as your main 2FA method. Since a lot of the websites yet to support security tokens as 2FA I needed to keep a list to remind myself to check them in the future. As I visited more websites, the range of 2FA/MFA options and combinations of them are totally.. unexpectedly unstandardized, and the combinations of different MFA options are as complicated as they can be to consider which would give the best security. The need to have a standard rule to follow when setting up 2FA/MFA give birth to this document.
+Above are the problems you may when trying to use security tokens as your main 2FA method. Since a lot of the websites yet to support security tokens as 2FA I needed to keep a list to remind myself to check them in the future. As I visited more websites, the range of 2FA/MFA options and combinations of them are totally.. unexpectedly unstandardized, and the combinations of different MFA options are as complicated as they can be to consider which would give the best security.
+
+The realization that some websites allow MFA only with SMS-2FA enabled, or give no options to disable less secure 2FA options, and the need to have a standard rule to follow when setting up 2FA/MFA give birth to this document.
 
 ## Ranks
 | Rank | Sub-rank | Best 2FA Options                                           |
@@ -55,14 +57,14 @@ Above are the problems you may when trying to use security tokens as your main 2
 5. Backup codes shall be removed, or stored offline (not on any form of digital device), think of it as a type of single-use security token but without the protection from phishing/MitB.
 
 ## Abbreviations
-Token - Security Token
-TOTP - Time-based one-time password
-E-Mail - E-mail Code
-SMS - Short Message Service OTP
-BC - Backup Codes
+Token - Security Token  
+TOTP - Time-based one-time password  
+E-Mail - E-mail Code  
+SMS - Short Message Service OTP  
+B.C. - Backup Codes
 
 ## Website List
-| Website     | Rank | Token | TOTP | E-mail | SMS | BC       | Notes                                                            |
+| Website     | Rank | Token | TOTP | E-mail | SMS | B.C.     | Notes                                                            |
 |-------------|------|-------|------|--------|-----|----------|------------------------------------------------------------------|
 | Amazon      | 5a   |       | O    |        | O   | No       | SMS-2FA required to enable TOTP                                  |
 | Atlassian   | 4c   |       | O    |        |     | Yes      | 2FA is skipped when using Google, Microsoft, or SAML SSO         |
@@ -72,7 +74,7 @@ BC - Backup Codes
 | Discord     | 3c   |       | O    |        |     | Yes      |                                                                  |
 | Docker      | 3c   |       | O    |        |     | Yes      |                                                                  |
 | Evernote    | 3c   |       | O    |        |     | Yes      | Does not ask for 2FA using Goggle SSO                            |
-| Facebook    | 1(?) |       | O    |        |     | Yes      | Message prompt by Facebook indicates possibility to approve login from another logged in device when "Use a different method" is selected during log.[^fb] To be verified. |
+| Facebook    | 1(?) |       | O    |        |     | Yes      | Message prompt by Facebook indicates possibility to approve login from another logged in device when "Use a different method" is selected.[^fb] To be verified. |
 | GitHub      | 2b   | O     | O    |        |     | Yes      | Force enables GitHub Mobile Push-2FA if mobile app is used       |
 | GoodSync    | 3b   |       | O    |        |     | No       |                                                                  |
 | Google-ATP  | 1    | O     |      |        |     | No       | Need to enroll in Advanced Thread Protection                     |
@@ -81,9 +83,9 @@ BC - Backup Codes
 | LinkedIn    | 3c   |       | O    |        |     | Yes      |                                                                  |
 | LogMeIn     | 3d   |       | O    | O      |     | Yes      |                                                                  |
 | Mega        | 2b   | O     | O    | O      |     | Yes      |                                                                  |
-| Microsoft   | 2b   | O     | O    | O      |     | Yes      | Hardware key sign in bypasses username/password prompt           |
+| Microsoft   | 2b   | O     | O    | O      |     | Yes      | Bypasses username/password prompt when using security token      |
 | Parsec      | 3c   |       | O    |        |     | Yes      |                                                                  |
-| PayPal      | 1    | O     |      |        |     | No       | Only supports single hardware key, TOTP 2FA not working after setup unless set as primary. Unable to accept hardware key when TOTP 2FA is set as primary. Unable to remove recovery phone number. TOTP 2FA is set as primary to avoid lock-out having unable to accept second key |
+| PayPal      | 1    | O     |      |        |     | No       | Only supports single security token. Only allows "Primary" 2FA method when set. Removal of recovery phone number is not possible. |
 | Reddit      | 3c   |       | O    |        |     | Yes      |                                                                  |
 | Synology    | 5a   |       | O    |        | O   | Yes      | SMS-2FA required to enable TOTP                                  |
 | TradingView | 3c   |       | O    |        |     | Yes      |                                                                  |
@@ -97,3 +99,7 @@ BC - Backup Codes
 [^fb]: "You’ve asked us to require a 6-digit login code when anyone tries to access your account from a new device or browser.
 When you receive your 6-digit code, enter it to continue:<br>Approve from another device<br>Just check your notifications in another browser or phone where you've logged in."
 [^twc1]: [Authy handles all 2FA for Twitch users. When you enable 2FA on your Twitch account, an Authy account with a unique ID is automatically generated](https://support.authy.com/hc/en-us/articles/360033906974-Twitch-Login-Issues#h_7e0e3895-05d7-4e78-aee0-3fd6a3f15259)
+
+## TODO
+- Differentiate Hardware 2FA such as U2F, UAF, FIDO2/WebAuthn
+- NiceHash accepts used YubiKey OTP
