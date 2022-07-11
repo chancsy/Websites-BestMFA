@@ -1,0 +1,28 @@
+name: Push File
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  pull-request:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Create pull request on kat_wiki
+      uses: paygoc6/action-pull-request-another-repo@v1.0.1
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.KAT_WIKI_GITHUB_TOKEN}}
+      with:
+        source_folder: 'source-folder'
+        destination_repo: 'chancsy/kat_wiki'
+        destination_folder: 'docs/guides/security/'
+        destination_base_branch: 'edit'
+        destination_head_branch: 'main'
+        user_email: 'soonyet@gmail.com'
+        user_name: 'chancsy'
+        pull_request_reviewers: 'reviewers'
